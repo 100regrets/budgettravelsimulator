@@ -1,380 +1,775 @@
-/* =========================
-   BUDGET TRAVEL
-   DESIGN
-========================= */
+// ========================================
+// BUDGET TRAVEL
+// ========================================
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+const destinations = [
+
+    // ==============================
+    // EUROPE
+    // ==============================
+
+    {
+        continent: "Europe",
+        country: "France",
+        city: "Paris",
+        emoji: "🇫🇷",
+        flight: 120,
+        hotel: 90,
+        food: 35,
+        activities: 25,
+        types: ["city", "culture", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "France",
+        city: "Nice",
+        emoji: "🇫🇷",
+        flight: 140,
+        hotel: 100,
+        food: 35,
+        activities: 25,
+        types: ["sun", "city", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Italie",
+        city: "Rome",
+        emoji: "🇮🇹",
+        flight: 150,
+        hotel: 75,
+        food: 30,
+        activities: 20,
+        types: ["city", "culture", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Italie",
+        city: "Naples",
+        emoji: "🇮🇹",
+        flight: 170,
+        hotel: 60,
+        food: 30,
+        activities: 20,
+        types: ["sun", "city", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Espagne",
+        city: "Barcelone",
+        emoji: "🇪🇸",
+        flight: 130,
+        hotel: 75,
+        food: 30,
+        activities: 20,
+        types: ["sun", "city", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Espagne",
+        city: "Madrid",
+        emoji: "🇪🇸",
+        flight: 120,
+        hotel: 65,
+        food: 30,
+        activities: 20,
+        types: ["city", "culture", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Portugal",
+        city: "Lisbonne",
+        emoji: "🇵🇹",
+        flight: 180,
+        hotel: 70,
+        food: 25,
+        activities: 20,
+        types: ["sun", "city", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Portugal",
+        city: "Porto",
+        emoji: "🇵🇹",
+        flight: 160,
+        hotel: 55,
+        food: 25,
+        activities: 20,
+        types: ["city", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Grèce",
+        city: "Athènes",
+        emoji: "🇬🇷",
+        flight: 200,
+        hotel: 65,
+        food: 30,
+        activities: 20,
+        types: ["sun", "city", "culture"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Grèce",
+        city: "Santorin",
+        emoji: "🇬🇷",
+        flight: 230,
+        hotel: 110,
+        food: 35,
+        activities: 30,
+        types: ["sun", "nature"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Royaume-Uni",
+        city: "Londres",
+        emoji: "🇬🇧",
+        flight: 150,
+        hotel: 90,
+        food: 40,
+        activities: 30,
+        types: ["city", "culture", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Hongrie",
+        city: "Budapest",
+        emoji: "🇭🇺",
+        flight: 120,
+        hotel: 50,
+        food: 25,
+        activities: 15,
+        types: ["city", "culture", "food"]
+    },
+
+    {
+        continent: "Europe",
+        country: "Croatie",
+        city: "Split",
+        emoji: "🇭🇷",
+        flight: 220,
+        hotel: 70,
+        food: 30,
+        activities: 25,
+        types: ["sun", "nature"]
+    },
+
+    // ==============================
+    // ASIE
+    // ==============================
+
+    {
+        continent: "Asia",
+        country: "Japon",
+        city: "Tokyo",
+        emoji: "🇯🇵",
+        flight: 700,
+        hotel: 80,
+        food: 30,
+        activities: 35,
+        types: ["city", "culture", "food"]
+    },
+
+    {
+        continent: "Asia",
+        country: "Japon",
+        city: "Kyoto",
+        emoji: "🇯🇵",
+        flight: 700,
+        hotel: 75,
+        food: 30,
+        activities: 30,
+        types: ["culture", "nature", "food"]
+    },
+
+    {
+        continent: "Asia",
+        country: "Thaïlande",
+        city: "Bangkok",
+        emoji: "🇹🇭",
+        flight: 650,
+        hotel: 40,
+        food: 15,
+        activities: 20,
+        types: ["city", "food", "culture"]
+    },
+
+    {
+        continent: "Asia",
+        country: "Thaïlande",
+        city: "Phuket",
+        emoji: "🇹🇭",
+        flight: 680,
+        hotel: 45,
+        food: 15,
+        activities: 25,
+        types: ["sun", "nature"]
+    },
+
+    {
+        continent: "Asia",
+        country: "Indonésie",
+        city: "Bali",
+        emoji: "🇮🇩",
+        flight: 750,
+        hotel: 40,
+        food: 15,
+        activities: 20,
+        types: ["sun", "nature"]
+    },
+
+    {
+        continent: "Asia",
+        country: "Émirats arabes unis",
+        city: "Dubaï",
+        emoji: "🇦🇪",
+        flight: 450,
+        hotel: 110,
+        food: 35,
+        activities: 40,
+        types: ["sun", "city"]
+    },
+
+    // ==============================
+    // AFRIQUE
+    // ==============================
+
+    {
+        continent: "Africa",
+        country: "Maroc",
+        city: "Marrakech",
+        emoji: "🇲🇦",
+        flight: 180,
+        hotel: 45,
+        food: 20,
+        activities: 20,
+        types: ["sun", "city", "culture", "food"]
+    },
+
+    {
+        continent: "Africa",
+        country: "Égypte",
+        city: "Le Caire",
+        emoji: "🇪🇬",
+        flight: 300,
+        hotel: 40,
+        food: 15,
+        activities: 20,
+        types: ["culture", "city"]
+    },
+
+    {
+        continent: "Africa",
+        country: "Afrique du Sud",
+        city: "Le Cap",
+        emoji: "🇿🇦",
+        flight: 750,
+        hotel: 60,
+        food: 25,
+        activities: 30,
+        types: ["nature", "sun", "city"]
+    },
+
+    // ==============================
+    // AMÉRIQUE
+    // ==============================
+
+    {
+        continent: "America",
+        country: "États-Unis",
+        city: "New York",
+        emoji: "🇺🇸",
+        flight: 500,
+        hotel: 140,
+        food: 50,
+        activities: 50,
+        types: ["city", "food"]
+    },
+
+    {
+        continent: "America",
+        country: "États-Unis",
+        city: "Miami",
+        emoji: "🇺🇸",
+        flight: 550,
+        hotel: 120,
+        food: 40,
+        activities: 35,
+        types: ["sun", "city"]
+    },
+
+    {
+        continent: "America",
+        country: "Canada",
+        city: "Montréal",
+        emoji: "🇨🇦",
+        flight: 450,
+        hotel: 80,
+        food: 30,
+        activities: 25,
+        types: ["city", "nature", "food"]
+    },
+
+    {
+        continent: "America",
+        country: "Mexique",
+        city: "Cancún",
+        emoji: "🇲🇽",
+        flight: 550,
+        hotel: 70,
+        food: 25,
+        activities: 30,
+        types: ["sun", "nature"]
+    },
+
+    {
+        continent: "America",
+        country: "Brésil",
+        city: "Rio de Janeiro",
+        emoji: "🇧🇷",
+        flight: 650,
+        hotel: 55,
+        food: 20,
+        activities: 25,
+        types: ["sun", "city", "nature"]
+    },
+
+    // ==============================
+    // OCÉANIE
+    // ==============================
+
+    {
+        continent: "Oceania",
+        country: "Australie",
+        city: "Sydney",
+        emoji: "🇦🇺",
+        flight: 900,
+        hotel: 90,
+        food: 35,
+        activities: 35,
+        types: ["sun", "city", "nature"]
+    },
+
+    {
+        continent: "Oceania",
+        country: "Nouvelle-Zélande",
+        city: "Auckland",
+        emoji: "🇳🇿",
+        flight: 950,
+        hotel: 80,
+        food: 30,
+        activities: 35,
+        types: ["nature", "city"]
+    }
+];// ========================================
+// ÉLÉMENTS DE LA PAGE
+// ========================================
+
+const continentInput = document.getElementById("continent");
+const countryInput = document.getElementById("country");
+const budgetInput = document.getElementById("budget");
+const travelersInput = document.getElementById("travelers");
+const startInput = document.getElementById("start");
+const endInput = document.getElementById("end");
+const styleInput = document.getElementById("style");
+const searchButton = document.getElementById("searchButton");
+const resultsContainer = document.getElementById("results");
+const resultsInfo = document.getElementById("resultsInfo");
+
+
+// ========================================
+// METTRE À JOUR LES PAYS
+// ========================================
+
+function updateCountries() {
+
+    const selectedContinent = continentInput.value;
+
+    countryInput.innerHTML = `
+        <option value="all">Tous les pays</option>
+    `;
+
+    const countries = [...new Set(
+        destinations
+            .filter(destination =>
+                selectedContinent === "all" ||
+                destination.continent === selectedContinent
+            )
+            .map(destination => destination.country)
+    )];
+
+    countries.sort();
+
+    countries.forEach(country => {
+
+        const option = document.createElement("option");
+
+        option.value = country;
+        option.textContent = country;
+
+        countryInput.appendChild(option);
+    });
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f7f8fc;
-    color: #172033;
-    line-height: 1.5;
-}
 
+// ========================================
+// CALCUL DU NOMBRE DE JOURS
+// ========================================
 
-/* =========================
-   HEADER
-========================= */
+function calculateDays(start, end) {
 
-header {
-    height: 75px;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 7%;
-    border-bottom: 1px solid #eeeeee;
-}
+    const startDate = new Date(start);
+    const endDate = new Date(end);
 
-.logo {
-    font-size: 22px;
-    font-weight: 800;
-    color: #2563eb;
-}
+    const difference =
+        endDate.getTime() - startDate.getTime();
 
-nav {
-    display: flex;
-    gap: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #555;
-    font-size: 15px;
-}
-
-nav a:hover {
-    color: #2563eb;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-main {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.hero {
-    padding: 80px 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.hero-text {
-    padding-left: 20px;
-}
-
-.badge {
-    display: inline-block;
-    background: #eaf1ff;
-    color: #2563eb;
-    padding: 8px 14px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: 56px;
-    line-height: 1.08;
-    letter-spacing: -2px;
-    margin-bottom: 25px;
-}
-
-.hero h1 span {
-    color: #2563eb;
-}
-
-.hero-text p {
-    color: #687386;
-    font-size: 18px;
-    max-width: 500px;
-}
-
-
-/* =========================
-   SEARCH BOX
-========================= */
-
-.search-box {
-    background: white;
-    padding: 35px;
-    border-radius: 24px;
-    box-shadow: 0 15px 50px rgba(30, 50, 90, 0.10);
-}
-
-.search-box h2 {
-    font-size: 25px;
-    margin-bottom: 25px;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 7px;
-    color: #374151;
-}
-
-input,
-select {
-    width: 100%;
-    height: 50px;
-    padding: 0 14px;
-    border: 1px solid #dfe3ea;
-    border-radius: 12px;
-    background: white;
-    font-size: 15px;
-    color: #172033;
-    outline: none;
-}
-
-input:focus,
-select:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-
-/* =========================
-   BUTTON
-========================= */
-
-#searchButton {
-    width: 100%;
-    height: 55px;
-    border: none;
-    border-radius: 13px;
-    background: #2563eb;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#searchButton:hover {
-    background: #1d4ed8;
-    transform: translateY(-1px);
-}
-
-
-/* =========================
-   RESULTS
-========================= */
-
-.results-section {
-    padding: 30px;
-    padding-bottom: 80px;
-}
-
-.results-header {
-    margin-bottom: 30px;
-}
-
-.results-header h2 {
-    font-size: 30px;
-    margin-bottom: 5px;
-}
-
-.results-header p {
-    color: #737d8f;
-}
-
-.results {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-
-/* =========================
-   EMPTY RESULT
-========================= */
-
-.empty-results {
-    grid-column: 1 / -1;
-    text-align: center;
-    background: white;
-    border-radius: 20px;
-    padding: 60px 20px;
-    border: 1px solid #eeeeee;
-}
-
-.empty-icon {
-    font-size: 50px;
-    margin-bottom: 15px;
-}
-
-.empty-results h3 {
-    font-size: 21px;
-    margin-bottom: 5px;
-}
-
-.empty-results p {
-    color: #777;
-}
-
-
-/* =========================
-   DESTINATION CARD
-========================= */
-
-.destination-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid #eeeeee;
-    transition: 0.25s;
-}
-
-.destination-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(30, 50, 90, 0.12);
-}
-
-.destination-image {
-    height: 180px;
-    background: linear-gradient(
-        135deg,
-        #dbeafe,
-        #bfdbfe
+    return Math.ceil(
+        difference / (1000 * 60 * 60 * 24)
     );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 70px;
-}
-
-.destination-content {
-    padding: 20px;
-}
-
-.destination-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.destination-title h3 {
-    font-size: 20px;
-}
-
-.destination-country {
-    color: #7a8495;
-    font-size: 14px;
-}
-
-.destination-price {
-    margin-top: 18px;
-    font-size: 24px;
-    font-weight: 800;
-    color: #2563eb;
-}
-
-.destination-price small {
-    font-size: 12px;
-    color: #7a8495;
-    font-weight: 400;
-}
-
-.destination-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 15px;
-}
-
-.detail {
-    background: #f7f8fc;
-    padding: 9px;
-    border-radius: 9px;
-    font-size: 12px;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+// ========================================
+// CALCUL DU PRIX
+// ========================================
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #172033;
-    color: #aeb7c7;
-    font-size: 13px;
+function calculatePrice(destination, days, travelers) {
+
+    const flight =
+        destination.flight * travelers;
+
+    const rooms =
+        Math.ceil(travelers / 2);
+
+    const hotel =
+        destination.hotel * days * rooms;
+
+    const food =
+        destination.food * days * travelers;
+
+    const activities =
+        destination.activities * days * travelers;
+
+    const total =
+        flight + hotel + food + activities;
+
+    return {
+        flight,
+        hotel,
+        food,
+        activities,
+        total
+    };
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+// ========================================
+// RECHERCHE DES VOYAGES
+// ========================================
 
-@media (max-width: 850px) {
+function searchTrips() {
 
-    header {
-        padding: 0 20px;
+    const budget = Number(budgetInput.value);
+    const travelers = Number(travelersInput.value);
+
+    const start = startInput.value;
+    const end = endInput.value;
+
+    const selectedContinent =
+        continentInput.value;
+
+    const selectedCountry =
+        countryInput.value;
+
+    const selectedStyle =
+        styleInput.value;
+
+
+    if (!budget || budget <= 0) {
+
+        alert("Entre un budget valide.");
+
+        return;
     }
 
-    nav {
-        display: none;
+
+    if (!travelers || travelers <= 0) {
+
+        alert("Indique le nombre de voyageurs.");
+
+        return;
     }
 
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 50px 20px;
-        gap: 40px;
+
+    if (!start || !end) {
+
+        alert("Choisis tes dates de voyage.");
+
+        return;
     }
 
-    .hero-text {
-        padding-left: 0;
+
+    const days =
+        calculateDays(start, end);
+
+
+    if (days <= 0) {
+
+        alert(
+            "La date de retour doit être après la date de départ."
+        );
+
+        return;
     }
 
-    .hero h1 {
-        font-size: 42px;
-    }
 
-    .results {
-        grid-template-columns: 1fr;
-    }
+    const results = [];
 
+
+    destinations.forEach(destination => {
+
+        if (
+            selectedContinent !== "all" &&
+            destination.continent !== selectedContinent
+        ) {
+            return;
+        }
+
+
+        if (
+            selectedCountry !== "all" &&
+            destination.country !== selectedCountry
+        ) {
+            return;
+        }
+
+
+        if (
+            selectedStyle !== "all" &&
+            !destination.types.includes(selectedStyle)
+        ) {
+            return;
+        }
+
+
+        const price =
+            calculatePrice(
+                destination,
+                days,
+                travelers
+            );
+
+
+        if (price.total <= budget) {
+
+            let match = 60;
+
+
+            if (
+                selectedStyle !== "all" &&
+                destination.types.includes(selectedStyle)
+            ) {
+                match += 25;
+            }
+
+
+            const budgetUsage =
+                price.total / budget;
+
+
+            if (budgetUsage >= 0.5) {
+                match += 15;
+            }
+
+
+            results.push({
+
+                ...destination,
+
+                price: price,
+
+                match: Math.min(match, 100)
+
+            });
+        }
+    });
+
+
+    results.sort(
+        (a, b) => b.match - a.match
+    );
+
+
+    displayResults(
+        results,
+        days,
+        travelers
+    );
 }
 
-@media (max-width: 500px) {
 
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
+// ========================================
+// AFFICHAGE DES RÉSULTATS
+// ========================================
+
+function displayResults(
+    results,
+    days,
+    travelers
+) {
+
+    resultsContainer.innerHTML = "";
+
+
+    if (results.length === 0) {
+
+        resultsInfo.textContent =
+            "Aucune destination ne correspond à tes critères.";
+
+        resultsContainer.innerHTML = `
+            <div class="empty-results">
+                <div class="empty-icon">😕</div>
+
+                <h3>Aucun voyage trouvé</h3>
+
+                <p>
+                    Essaie d'augmenter ton budget
+                    ou de modifier tes critères.
+                </p>
+            </div>
+        `;
+
+        return;
     }
 
-    .search-box {
-        padding: 22px;
-    }
 
-    .hero h1 {
-        font-size: 36px;
-    }
+    resultsInfo.textContent =
+        `${results.length} destination(s) trouvée(s) pour ${travelers} voyageur(s) et ${days} jour(s).`;
 
+
+    results.forEach(destination => {
+
+        const price =
+            destination.price;
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "destination-card";
+
+
+        card.innerHTML = `
+
+            <div class="destination-image">
+
+                ${destination.emoji}
+
+            </div>
+
+
+            <div class="destination-content">
+
+                <div class="destination-title">
+
+                    <h3>
+                        ${destination.city}
+                    </h3>
+
+                    <span>
+                        ${destination.match}%
+                    </span>
+
+                </div>
+
+
+                <div class="destination-country">
+
+                    ${destination.country}
+
+                </div>
+
+
+                <div class="destination-price">
+
+                    ${price.total.toLocaleString("fr-FR")} €
+
+                    <small>
+                        / voyage
+                    </small>
+
+                </div>
+
+
+                <div class="destination-details">
+
+                    <div class="detail">
+                        ✈️ Vol<br>
+                        ${price.flight.toLocaleString("fr-FR")} €
+                    </div>
+
+                    <div class="detail">
+                        🏨 Hôtel<br>
+                        ${price.hotel.toLocaleString("fr-FR")} €
+                    </div>
+
+                    <div class="detail">
+                        🍝 Repas<br>
+                        ${price.food.toLocaleString("fr-FR")} €
+                    </div>
+
+                    <div class="detail">
+                        🎟️ Activités<br>
+                        ${price.activities.toLocaleString("fr-FR")} €
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+
+        resultsContainer.appendChild(card);
+
+    });
 }
+
+
+// ========================================
+// CHANGEMENT DE CONTINENT
+// ========================================
+
+continentInput.addEventListener(
+    "change",
+    updateCountries
+);
+
+
+// ========================================
+// BOUTON RECHERCHE
+// ========================================
+
+searchButton.addEventListener(
+    "click",
+    searchTrips
+);
+
+
+// ========================================
+// INITIALISATION
+// ========================================
+
+updateCountries();
