@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BudgetTravel - Trouve ton voyage</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            ✈️ BudgetTravel
+        </div>
+
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#">Comment ça marche</a>
+            <a href="#">À propos</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <span class="badge">
+                    ✨ Ton budget. Ton voyage.
+                </span>
+
+                <h1>
+                    Où partir avec
+                    <span>ton budget ?</span>
+                </h1>
+
+                <p>
+                    Indique ton budget, tes dates et le nombre de voyageurs.
+                    Notre simulateur te proposera des destinations adaptées.
+                </p>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <h2>
+                    Trouve ton voyage
+                </h2>
+
+                <div class="form-group">
+
+                    <label for="departure">
+                        📍 Ville de départ
+                    </label>
+
+                    <input
+                        type="text"
+                        id="departure"
+                        placeholder="Ex : Paris"
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="budget">
+                            💰 Budget total
+                        </label>
+
+                        <input
+                            type="number"
+                            id="budget"
+                            placeholder="Ex : 1500"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="travelers">
+                            👥 Voyageurs
+                        </label>
+
+                        <select id="travelers">
+
+                            <option value="1">
+                                1 personne
+                            </option>
+
+                            <option value="2" selected>
+                                2 personnes
+                            </option>
+
+                            <option value="3">
+                                3 personnes
+                            </option>
+
+                            <option value="4">
+                                4 personnes
+                            </option>
+
+                            <option value="5">
+                                5 personnes
+                            </option>
+
+                            <option value="6">
+                                6 personnes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="start">
+                            📅 Date de départ
+                        </label>
+
+                        <input
+                            type="date"
+                            id="start"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="end">
+                            📅 Date de retour
+                        </label>
+
+                        <input
+                            type="date"
+                            id="end"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="style">
+                        ❤️ Type de voyage
+                    </label>
+
+                    <select id="style">
+
+                        <option value="sun">
+                            ☀️ Soleil & plage
+                        </option>
+
+                        <option value="city">
+                            🏙️ Ville & culture
+                        </option>
+
+                        <option value="nature">
+                            🌿 Nature & aventure
+                        </option>
+
+                        <option value="food">
+                            🍝 Gastronomie
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button id="searchButton">
+                    ✨ Trouver mon voyage
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="results-section">
+
+            <div class="results-header">
+
+                <h2>
+                    ✈️ Destinations proposées
+                </h2>
+
+                <p id="resultsInfo">
+                    Remplis le formulaire pour découvrir tes possibilités.
+                </p>
+
+            </div>
+
+
+            <div id="results" class="results">
+
+                <div class="empty-results">
+
+                    <div class="empty-icon">
+                        🌍
+                    </div>
+
+                    <h3>
+                        Ton prochain voyage commence ici
+                    </h3>
+
+                    <p>
+                        Indique ton budget et tes dates ci-dessus.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 BudgetTravel — Trouve plus, dépense moins ✈️
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
