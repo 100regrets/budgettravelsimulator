@@ -83,16 +83,51 @@ const destinations = [
         types: ["sun", "nature"]
     },
 
-    {
-        city: "Ljubljana",
-        country: "Slovénie",
-        emoji: "🇸🇮",
-        flight: 180,
-        hotel: 60,
-        food: 30,
-        activities: 25,
-        types: ["nature", "city"]
-    }
+    ,
+
+{
+    city: "Londres",
+    country: "Royaume-Uni",
+    emoji: "🇬🇧",
+    flight: 150,
+    hotel: 90,
+    food: 40,
+    activities: 30,
+    types: ["city", "food"]
+},
+
+{
+    city: "Marrakech",
+    country: "Maroc",
+    emoji: "🇲🇦",
+    flight: 180,
+    hotel: 45,
+    food: 20,
+    activities: 20,
+    types: ["sun", "city", "food"]
+},
+
+{
+    city: "New York",
+    country: "États-Unis",
+    emoji: "🇺🇸",
+    flight: 500,
+    hotel: 140,
+    food: 50,
+    activities: 50,
+    types: ["city", "food"]
+},
+
+{
+    city: "Tokyo",
+    country: "Japon",
+    emoji: "🇯🇵",
+    flight: 700,
+    hotel: 80,
+    food: 30,
+    activities: 35,
+    types: ["city", "food"]
+}
 
 ];
 
