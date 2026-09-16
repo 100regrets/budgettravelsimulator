@@ -3,79 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BudgetTravel</title>
+    <title>BudgetTravel — Trouve ton prochain voyage</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>🌍 BudgetTravel</h1>
-        <p>Trouve ton voyage idéal selon ton budget</p>
+    <header class="hero">
+
+        <nav>
+            <div class="logo">🌍 BudgetTravel</div>
+
+            <div class="nav-links">
+                <a href="#recherche">Rechercher</a>
+                <a href="#destinations">Destinations</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <p class="small-title">✈️ TON PROCHAIN VOYAGE</p>
+
+            <h1>
+                Quel sera ton<br>
+                <span>prochain voyage ?</span>
+            </h1>
+
+            <p>
+                Trouve une destination adaptée à ton budget,
+                tes envies et tes dates.
+            </p>
+        </div>
+
     </header>
+
 
     <main>
 
-        <section class="search-box">
+        <section class="search-card" id="recherche">
 
-            <h2>✈️ Trouve ton voyage</h2>
-
-            <label for="continent">🌎 Continent</label>
-            <select id="continent">
-                <option value="all">Tous les continents</option>
-                <option value="Europe">Europe</option>
-                <option value="Asia">Asie</option>
-                <option value="Africa">Afrique</option>
-                <option value="America">Amérique</option>
-                <option value="Oceania">Océanie</option>
-            </select>
-
-            <label for="country">🌍 Pays</label>
-            <select id="country">
-                <option value="all">Tous les pays</option>
-            </select>
-
-            <label for="budget">💰 Budget total (€)</label>
-            <input type="number" id="budget" placeholder="Ex : 1500" min="1">
-
-            <label for="travelers">👥 Nombre de voyageurs</label>
-            <input type="number" id="travelers" value="2" min="1">
-
-            <div class="dates">
+            <div class="search-title">
                 <div>
+                    <p>PLANIFIE TON VOYAGE</p>
+                    <h2>Où veux-tu partir ?</h2>
+                </div>
+
+                <div class="plane-icon">✈️</div>
+            </div>
+
+
+            <div class="search-grid">
+
+                <div class="field">
+                    <label for="continent">🌎 Continent</label>
+
+                    <select id="continent">
+                        <option value="all">Tous les continents</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Asia">Asie</option>
+                        <option value="Africa">Afrique</option>
+                        <option value="America">Amérique</option>
+                        <option value="Oceania">Océanie</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label for="country">🏳️ Pays</label>
+
+                    <select id="country">
+                        <option value="all">Tous les pays</option>
+                    </select>
+                </div>
+
+
+                <div class="field">
+                    <label for="budget">💰 Budget total</label>
+
+                    <input
+                        type="number"
+                        id="budget"
+                        placeholder="Ex : 1500 €"
+                        min="1"
+                    >
+                </div>
+
+
+                <div class="field">
+                    <label for="travelers">👥 Voyageurs</label>
+
+                    <input
+                        type="number"
+                        id="travelers"
+                        value="2"
+                        min="1"
+                    >
+                </div>
+
+
+                <div class="field">
                     <label for="start">📅 Départ</label>
+
                     <input type="date" id="start">
                 </div>
 
-                <div>
+
+                <div class="field">
                     <label for="end">📅 Retour</label>
+
                     <input type="date" id="end">
                 </div>
+
+
+                <div class="field">
+                    <label for="style">🏝️ Type de voyage</label>
+
+                    <select id="style">
+                        <option value="all">Tous les types</option>
+                        <option value="sun">☀️ Plage & soleil</option>
+                        <option value="city">🏙️ Ville</option>
+                        <option value="nature">🏔️ Nature</option>
+                        <option value="culture">🏛️ Culture</option>
+                        <option value="food">🍝 Gastronomie</option>
+                    </select>
+                </div>
+
             </div>
 
-            <label for="style">🏝️ Type de voyage</label>
-            <select id="style">
-                <option value="all">Tous les types</option>
-                <option value="sun">☀️ Plage & soleil</option>
-                <option value="city">🏙️ Ville</option>
-                <option value="nature">🏔️ Nature</option>
-                <option value="culture">🏛️ Culture</option>
-                <option value="food">🍝 Gastronomie</option>
-            </select>
 
-            <button id="searchButton">
+            <button id="searchButton" class="search-button">
                 🔎 Trouver mon voyage
             </button>
 
         </section>
 
-        <section class="results-section">
 
-            <h2>🌍 Destinations recommandées</h2>
+        <section class="results-section" id="destinations">
 
-            <p id="resultsInfo">
-                Choisis tes critères pour découvrir des destinations.
-            </p>
+            <div class="results-header">
+
+                <div>
+                    <p>SELON TES CRITÈRES</p>
+
+                    <h2>✨ Des idées pour toi</h2>
+                </div>
+
+                <p id="resultsInfo">
+                    Choisis tes critères pour découvrir des destinations.
+                </p>
+
+            </div>
+
 
             <div id="results"></div>
 
@@ -83,9 +160,15 @@
 
     </main>
 
+
     <footer>
-        <p>🌍 BudgetTravel — Trouve ton voyage selon ton budget</p>
+        <div class="footer-logo">🌍 BudgetTravel</div>
+
+        <p>
+            Trouve ton voyage idéal selon ton budget.
+        </p>
     </footer>
+
 
     <script src="script.js"></script>
 
