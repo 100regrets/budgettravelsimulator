@@ -83,7 +83,6 @@ const destinations = [
         types: ["sun", "nature"]
     },
 
-    ,
 
 {
     city: "Londres",
